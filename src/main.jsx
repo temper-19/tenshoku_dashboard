@@ -363,6 +363,8 @@ function CompanyList({ companies, totalCount, onEdit }) {
 
 function CompanyCard({ company, onEdit }) {
   const due = isDue(company.nextScheduleDate);
+  const hasLinks = Boolean(company.jobUrl || company.companyUrl);
+  const stopCardClick = (event) => event.stopPropagation();
 
   return (
     <article className="company-card" onClick={onEdit}>
@@ -395,6 +397,20 @@ function CompanyCard({ company, onEdit }) {
           <dd>{formatDate(company.nextScheduleDate)}</dd>
         </div>
       </dl>
+      {hasLinks && (
+        <div className="card-links" onClick={stopCardClick}>
+          {company.jobUrl && (
+            <a href={company.jobUrl} target="_blank" rel="noreferrer">
+              求人ページ
+            </a>
+          )}
+          {company.companyUrl && (
+            <a href={company.companyUrl} target="_blank" rel="noreferrer">
+              企業ページ
+            </a>
+          )}
+        </div>
+      )}
       <button className="card-edit" type="button" onClick={onEdit}>
         <Pencil size={15} aria-hidden="true" />
         編集

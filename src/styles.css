@@ -331,6 +331,31 @@ textarea:focus {
   font-weight: 600;
 }
 
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 0 10px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.card-links a:hover {
+  border-color: #93c5fd;
+  background: #dbeafe;
+}
+
 .card-edit {
   align-self: flex-start;
   margin-top: auto;
